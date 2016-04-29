@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <mysql/mysql.h>
-#include "db_confih.h"
+#include "db_config.h"
 #include "parser.h"
 
 int main(){
