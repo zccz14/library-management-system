@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <mysql/mysql.h>
 #include "db_config.h"
-#include "parser.h"
+#include "function.h"
 
 int main(){
     MYSQL mysql;
@@ -11,7 +11,31 @@ int main(){
         printf("Connection Failed.\n");
         return 1;
     }
-    char cli[100];
-    while(readLine(cli, 100))
-        handleLine(conn, cli);
+    int type, a, b;
+    while(~scanf("%d", &type)){
+        switch(type){
+            case 1:
+                scanf("%d", &a);
+                add_license(conn, a);
+                break;
+            case 2:
+                scanf("%d", &a);
+                delete_license(conn, a);
+                break;
+            case 3:
+                scanf("%d", &a, &b);
+                add_book(conn, a, b);
+                break;
+            case 4:
+                scanf("%d", &a, &b);
+                lend_book(conn, a, b);
+                break;
+            case 5:
+                scanf("%d", &a, &b);
+                return_book(conn, a, b);
+                break;
+            default:
+                printf("Invalid Command\n");
+        }
+    }
 }
