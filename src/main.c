@@ -23,15 +23,15 @@ int main(){
                 delete_license(conn, a);
                 break;
             case 3:
-                scanf("%d", &a, &b);
+                scanf("%d%d", &a, &b);
                 add_book(conn, a, b);
                 break;
             case 4:
-                scanf("%d", &a, &b);
+                scanf("%d%d", &a, &b);
                 lend_book(conn, a, b);
                 break;
             case 5:
-                scanf("%d", &a, &b);
+                scanf("%d%d", &a, &b);
                 return_book(conn, a, b);
                 break;
             default:
