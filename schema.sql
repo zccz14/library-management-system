@@ -1,18 +1,16 @@
 create table license (
-    id varchar(20) not null, 
-    primary key (id)
+    id int primary key
 );
 
 create table book (
-    id varchar(20) not null,
-    name varchar(45),
-    count int,
-    primary key (id)
+    id int primary key,
+    count int
 );
 
 create table lend (
-    license_id varchar(20) not null,
-    book_id varchar(20) not null,
+    license_id int not null,
+    book_id int not null,
+    returned tinyint(1),
     foreign key (license_id) references license (id) on delete cascade on update cascade,
     foreign key (book_id) references book (id) on delete cascade on update cascade 
 );
